@@ -66,7 +66,7 @@ def create_tables(inf_data):
                  'mean K_s cm/s,std K_s,K_ss cm/s,L_f cm,Latitude,Longitude\n')
         for idx, val in enumerate(dm1):
             s = ",".join([str(i) for i in val])
-            s += "{},{}".format(*ll[idx])
+            s += ",{},{}".format(*ll[idx])
             af.write(s)
             af.write('\n')
 
@@ -101,5 +101,6 @@ if __name__ == "__main__":
     for key, value in data.items():
         data[key]['lat'] = lat_lon[i][0]
         data[key]['lon'] = lat_lon[i][1]
-
+        i += 1
+        
     create_tables(data)
